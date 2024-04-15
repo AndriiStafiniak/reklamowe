@@ -24,7 +24,7 @@ export const Products = () => {
   return (
     <ProductsContainer>
       {data.map((product) => (
-        <TileLink to="/product-details">
+        <TileLink to={`/product-details/${product.id}`}>
           <li key={product.id}>
             <ProductCard product={product} />
           </li>

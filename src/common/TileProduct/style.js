@@ -45,6 +45,16 @@ export const Price = styled.div`
 `;
 export const ExtraPriceContent = styled.span`
   font-size: 16px;
+  transition: 0, 3s;
+  &::after {
+    content: "cena od";
+
+    transition: opacity 0.3s;
+  }
+
+  &:hover::after {
+    content: "cena netto";
+  }
 `;
 
 export const ProductImage = styled.img`

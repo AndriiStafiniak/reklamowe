@@ -17,6 +17,7 @@ export const ProductCard = ({ product }) => {
     const words = text.split(" ");
     return words.slice(0, 3).join(" ");
   };
+  const productPrice = product.price.toFixed(2).replace(".", ",");
   const shirtTitle = getThreeFirstWords(product.title);
   return (
     <TileWrapper>
@@ -35,8 +36,8 @@ export const ProductCard = ({ product }) => {
           </RateText>
         </RateContainer>
         <Price>
-          <ExtraPriceContent>cena od </ExtraPriceContent>{" "}
-          {product.price.toFixed(2)} zł
+          <ExtraPriceContent> </ExtraPriceContent>{" "}
+          {!productPrice ? "" : productPrice} zł
         </Price>
       </BottomContainer>
     </TileWrapper>
