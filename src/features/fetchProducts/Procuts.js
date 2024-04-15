@@ -1,10 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import { fethProducts } from "./fetchProduct";
+import { fetchProducts } from "./fetchProduct";
+import { ProductCard } from "../../common/TileProduct/ProductCard";
+import { ProductsContainer, TileLink } from "./style";
 
 export const Products = () => {
   const { isLoading, isPaused, error, data } = useQuery({
     queryKey: ["products"],
-    queryFn: fethProducts,
+    queryFn: fetchProducts,
   });
   if (isPaused) {
     return <div>Sprawdz polączenie z internetem</div>;
@@ -15,22 +17,19 @@ export const Products = () => {
   if (error) {
     return <div>`nie udało się pobrać danych z powodu: ${error.message}`</div>;
   }
-  console.log("komponent:", data);
+  if (!data) {
+    return <div>Brak danych produktów</div>;
+  }
 
   return (
-    <ul>
+    <ProductsContainer>
       {data.map((product) => (
-        <li key={product.id}>
-          <img src={product.image} width={"300px"} alt="product image" />
-          <p>{product.price}</p>
-          <p>{product.name}</p>
-          <p>{product.category}</p>
-          <p>{product.rating.rate}</p>
-          <p>{product.rating.count}</p>
-
-          <p>{product.description}</p>
-        </li>
+        <TileLink to="/product-details">
+          <li key={product.id}>
+            <ProductCard product={product} />
+          </li>
+        </TileLink>
       ))}
-    </ul>
+    </ProductsContainer>
   );
 };
