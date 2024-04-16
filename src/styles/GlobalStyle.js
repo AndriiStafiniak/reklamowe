@@ -11,5 +11,6 @@ html{
   max-width:2000px;
   overflow: auto;
   box-sizing: border-box;
+  margin: 0 auto;
 }
 `;
