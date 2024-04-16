@@ -20,14 +20,24 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   width: 100%;
   padding: 20px;
+  background-color: ${({ theme }) => theme.colors.headerBg};
+  border-bottom: 1px solid #eee;
 `;
 export const Logo = styled.img`
   width: 175px;
   height: 55px;
+  @media (max-width: 900px) {
+    width: 100px;
+    height: 40px;
+  }
 `;
 export const HeaderContactContainer = styled.div`
   display: flex;
   gap: 30px;
+  @media (max-width: 900px) {
+    margin: 0 100px 0 10px;
+    align-self: center;
+  }
 `;
 
 export const ContactContent = styled(NavLink)`
@@ -40,5 +50,17 @@ export const ContactContent = styled(NavLink)`
 
   &:hover {
     text-decoration: underline;
+  }
+`;
+export const LogoLink = styled(NavLink)`
+  text-decoration: none;
+  transition: 0.2s;
+  &:hover {
+    opacity: 0.5;
+  }
+`;
+export const HideContacttext = styled.span`
+  @media (max-width: 900px) {
+    display: none;
   }
 `;
