@@ -11,4 +11,7 @@ export const ProductsContainer = styled.ul`
   gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(auto, 340px));
   justify-content: center;
+  @media (max-width: 900px) {
+    padding: 0;
+  }
 `;
