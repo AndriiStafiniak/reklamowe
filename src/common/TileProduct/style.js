@@ -4,14 +4,13 @@ import { ReactComponent as IconStar } from "../../images/icons/star.svg";
 export const TileWrapper = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.concrete};
   border-radius: 20px;
-  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.07);
   display: flex;
   flex-direction: column;
   padding: 1rem;
   position: relative;
-  transition: 0.5s;
+  transition: 0.2s;
   &:hover {
-    box-shadow: none;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.07);
   }
 `;
 export const ContentContainer = styled.div`
@@ -25,6 +24,9 @@ export const BottomContainer = styled.div`
 export const TitleProduct = styled.h3`
   font-size: 24px;
   margin: 0;
+  @media (max-width: 900px) {
+    font-size: 18px;
+  }
 `;
 export const ProductCategory = styled.span`
   font-size: 14px;
@@ -42,6 +44,9 @@ export const Price = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 33px;
+  @media (max-width: 900px) {
+    font-size: 22px;
+  }
 `;
 export const ExtraPriceContent = styled.span`
   font-size: 16px;
