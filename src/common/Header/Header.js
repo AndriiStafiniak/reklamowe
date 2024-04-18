@@ -9,7 +9,7 @@ import {
   StyledTelIcon,
 } from "./style";
 import MainLogo from "../../images/logo.png";
-import { toHomePage, toWhyWaveHome } from "../../routs";
+import { toHomePage } from "../../routs";
 
 export const Header = () => {
   return (

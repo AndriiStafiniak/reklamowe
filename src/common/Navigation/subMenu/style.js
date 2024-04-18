@@ -1,88 +1,45 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-export const SubMenuContainerMain = styled.div`
-  position: relative;
-`;
-
 export const SubMenuLink = styled(NavLink)`
+  padding: 8px 12px;
+  display: block;
+  color: black;
   text-decoration: none;
-  color: #fff;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  line-height: 160%;
-  letter-spacing: -0.01875rem;
+  font-size: 22px;
+  @media (max-width: 900px) {
+    color: 000;
+    background-color: #fff;
+  }
+`;
+
+export const SubMenuContainer = styled.div`
+  display: ${(props) => (props.isOpen ? "block" : "none")};
+
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  ${({ isOpen }) =>
+    isOpen &&
+    `
+    display: block;
+  `}
+`;
+
+export const MenuItem = styled.div`
   position: relative;
-  z-index: 10;
-  color: #b7b7b7;
-  @media (max-width: 900px) {
-    gap: 1.5rem;
-    font-size: 1rem;
+  &.active {
+    display: block;
   }
 `;
-
-export const SubNavContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  z-index: 12;
-  background-color: #eee;
-  padding: 5px;
-  border-radius: 20px;
-  width: 200px;
-  padding: 10px;
-  position: absolute;
-  top: 31px;
-  left: 0;
-  z-index: 22;
-
-  @media (max-width: 900px) {
-    gap: 1.5rem;
-    bottom: 30px;
-    right: 30px;
-  }
-`;
-
-export const ArrowButton = styled.button`
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  margin: 0;
-  transition: 0.2s;
-  &:hover {
-    filter: brightness(120%);
-  }
-
-  @media (max-width: 900px) {
-    gap: 1.2rem;
-    color: white;
-    font-size: 1.2rem;
-  }
-`;
-export const Arrow = styled.div`
-  cursor: pointer;
-  transition: transform 0.3s ease;
+export const Arrow = styled.span`
   display: inline-block;
-  font-size: 16px;
-  transform: ${({ isOpen }) => (isOpen ? "rotate(270deg)" : "rotate(90deg)")};
-`;
+  font-size: 14px;
+  margin-left: 7px;
+  transform: ${({ isOpen }) => (isOpen ? "rotate(90deg)" : "rotate(0deg)")};
+  transition: transform 0.2s;
 
-export const SubMenuTitle = styled.div`
-  font-size: 0.9375rem;
-  font-weight: 700;
-  line-height: 160%;
-  letter-spacing: -0.01875rem;
-  @media (max-width: 900px) {
-    gap: 1.5rem;
-    color: #b7b7b7;
-    font-size: 1.2rem;
-    margin: 0;
+  &:before {
+    content: "▼";
   }
-`;
-export const SubMenuLinkKontainer = styled.div`
-  display: flex;
-  gap: 8px;
 `;

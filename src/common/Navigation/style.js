@@ -7,35 +7,43 @@ export const NavigationWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 1.125rem;
+  position: relative;
 `;
 
-export const MenuLink = styled(NavLink)`
-  text-decoration: none;
-  color: blue;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  line-height: 160%;
-  padding: 5px;
-  border-radius: 10px;
-  letter-spacing: -0.01875rem;
-  transition: 0.3s;
-  background-color: ${(props) => (props.isActive ? "#00BCD4" : "transparent")};
-  color: ${(props) => (props.isActive ? "#ffffff" : "#000000")};
-  &:hover {
-    background-color: #61dcdf;
-  }
-  &.active {
-    background-color: #00bcd4;
-    color: white;
-    padding: 10px 20px;
-    clip-path: polygon(8% 18%, 85% 31%, 115% 71%, 0% 83%);
-    transition: background-color 0.3s ease;
-  }
+export const NavContainer = styled.nav`
+  align-items: center;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px;
+  display: flex;
 
   @media (max-width: 900px) {
-    font-size: 1.5rem;
-    color: #b7b7b7;
-    margin-top: 50px;
+    position: fixed;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 999;
+    transform: ${({ isOpen }) =>
+      isOpen ? "translateX(0)" : "translateX(-100%)"};
+    transition: transform 0.3s ease-in-out;
+  }
+`;
+
+export const BurgerMenuButton = styled.button`
+  display: block;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  z-index: 1000;
+  position: absolute;
+  right: 3%;
+  top: 5%;
+  display: none;
+  @media (max-width: 900px) {
+    display: block;
   }
 `;
 
@@ -59,61 +67,28 @@ export const BurgerIcon = styled.div`
   &::after {
     top: 10px;
   }
-
   ${({ isOpen }) =>
     isOpen &&
     `
     background-color: transparent;
-    &::before {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    &::after {
-      transform: rotate(-45deg) translate(7px, -8px);
-    }
+    &::before { transform: rotate(45deg) translate(5px, 5px); }
+    &::after { transform: rotate(-45deg) translate(7px, -8px); }
   `}
 `;
 
-export const NavContainer = styled.nav`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 2.25rem;
-  padding: 10px;
-
+export const MenuLink = styled(NavLink)`
+  text-decoration: none;
+  color: inherit;
+  font-weight: 700;
+  padding: 10px 20px;
+  font-size: 22px;
   @media (max-width: 900px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: start;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 999;
-    transform: ${({ isOpen }) =>
-      isOpen ? "translateX(0)" : "translateX(-100%)"};
-    transition: transform 0.3s ease-in-out;
-    padding: 30px;
+    color: #fff;
   }
-`;
-
-export const BurgerMenuButton = styled.button`
-  position: absolute;
-  top: 50px;
-  right: 30px;
-  display: none;
-  transition: 0.2s;
   &:hover {
-    filter: brightness(120%);
+    background-color: #61dcdf;
   }
-  @media (max-width: 900px) {
-    display: block;
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    z-index: 1000;
+  &.active {
+    background-color: #00bcd4;
   }
 `;
