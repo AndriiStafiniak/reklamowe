@@ -14,6 +14,7 @@ import { MenClothes } from "./features/Products/MenClothes/MenClothes";
 import { WomenClothes } from "./features/Products/WomenClothes/WomenClothes";
 import { Jewelery } from "./features/Products/Jewelery/Jewelery";
 import { Electronics } from "./features/Products/Electronics/Electronics";
+import { Footer } from "./common/Footer/Footer";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
 
         <Route path="/" element={<Navigate to={toHomePage()} />} />
       </Routes>
+      <Footer />
     </HashRouter>
   );
 }
