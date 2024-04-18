@@ -2,6 +2,7 @@ import {
   BottomContainer,
   ContentContainer,
   ExtraPriceContent,
+  HoverButton,
   IconStarStyled,
   Price,
   ProductCategory,
@@ -40,6 +41,7 @@ export const ProductCard = ({ product }) => {
           {!productPrice ? "" : productPrice} zł
         </Price>
       </BottomContainer>
+      <HoverButton>Zamów teraz</HoverButton>
     </TileWrapper>
   );
 };

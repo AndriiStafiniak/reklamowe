@@ -1,6 +1,29 @@
 import styled from "styled-components";
 import { ReactComponent as IconStar } from "../../images/icons/star.svg";
+import { NavLink } from "react-router-dom";
 
+export const HoverButton = styled(NavLink)`
+  font-size: 14px;
+  text-decoration: none;
+  width: 140px;
+  height: 38px;
+  padding: 10px 10px 11px 10px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 24px;
+  border: 1px solid #1f1c20;
+  background-color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0;
+  color: #1f1c20;
+  transition: 0.2s;
+  &:hover {
+    border-radius: 24px;
+    background: #1f1c20;
+    color: #fff;
+  }
+`;
 export const TileWrapper = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.concrete};
   border-radius: 20px;
@@ -11,6 +34,9 @@ export const TileWrapper = styled.div`
   transition: 0.2s;
   &:hover {
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.07);
+  }
+  &:hover ${HoverButton} {
+    opacity: 1;
   }
 `;
 export const ContentContainer = styled.div`

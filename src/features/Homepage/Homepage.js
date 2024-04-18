@@ -1,4 +1,3 @@
-import { MenuLink } from "../../common/Navigation/style";
 import {
   toElectronics,
   toJewelery,
@@ -10,16 +9,17 @@ import { Products } from "../Products/Procuts";
 import {
   CategoryLink,
   CategoryLinkWrapper,
-  PremiumBrand,
-  PremiumBrandItem,
-  PremiumBrandItemGrid,
   Section,
   SectionTitle,
 } from "./style";
-const bestsellerQueryString = "?limit=6";
-const items = Array.from({ length: 9 }, (_, i) => i);
+import { ReviewsComponent } from "../../common/ReviewsComponent/ReviewsComponent";
+import { Blog } from "./Blog/Blog";
+import { Brands } from "./Brands/Brands";
+import { AboutUs } from "./AboutUsSection/AboutUs";
+import { aboutUsData } from "./AboutUsSection/aboutUsData";
 
 export const Homepage = () => {
+  const bestsellerQueryString = "?limit=6";
   return (
     <>
       <Section>
@@ -38,23 +38,27 @@ export const Homepage = () => {
         <SectionTitle>Bestsellery</SectionTitle>
         <Products category={bestsellerQueryString} />
       </Section>
+      <Blog />
       <Section>
         <SectionTitle>Nasze marki premium</SectionTitle>
-        <PremiumBrandItemGrid>
-          {items.map((item) => (
-            <PremiumBrand key={item} to={toElectronics()}>
-              <PremiumBrandItem />
-            </PremiumBrand>
-          ))}
-        </PremiumBrandItemGrid>
+        <Brands />
       </Section>
       <Section>
         <SectionTitle>Co mówią o nas klienci</SectionTitle>
+        <ReviewsComponent placeId="ChIJc5eK49TKG0cRGmBqSZwKy24" />
       </Section>
       <Section>
         <SectionTitle>
           Gadżety reklamowe - Na tym znamy się najlepiej
         </SectionTitle>
+        {aboutUsData.map((data, index) => (
+          <AboutUs
+            key={index}
+            pathImage={data.image}
+            description={data.description}
+            title={data.title}
+          />
+        ))}
       </Section>
     </>
   );
