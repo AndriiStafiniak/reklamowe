@@ -15,6 +15,7 @@ import { WomenClothes } from "./features/Products/WomenClothes/WomenClothes";
 import { Jewelery } from "./features/Products/Jewelery/Jewelery";
 import { Electronics } from "./features/Products/Electronics/Electronics";
 import { Footer } from "./common/Footer/Footer";
+import { Contact } from "./features/Homepage/Contact/Contact";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Header />
       <Navigation />
       <Routes>
+        <Route path="/contact" element={<Contact />} />
         <Route path={toHomePage()} element={<Homepage />} />
         <Route path={toMenClothes()} element={<MenClothes />} />
         <Route path={toWomenClothes()} element={<WomenClothes />} />
