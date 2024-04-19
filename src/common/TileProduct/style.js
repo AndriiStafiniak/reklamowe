@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 
 export const HoverButton = styled(NavLink)`
   font-size: 14px;
+  display: block;
   text-decoration: none;
   width: 140px;
-  height: 38px;
   padding: 10px 10px 11px 10px;
   text-align: center;
   padding: 10px;
@@ -14,7 +14,6 @@ export const HoverButton = styled(NavLink)`
   border: 1px solid #1f1c20;
   background-color: #fff;
   font-weight: 700;
-  text-transform: uppercase;
   opacity: 0;
   color: #1f1c20;
   transition: 0.2s;
