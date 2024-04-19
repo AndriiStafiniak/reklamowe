@@ -1,34 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
-  Arrow,
   MenuItem,
   SubMenuContainer,
   SubMenuLink,
   WrapperSubMenu,
 } from "./style";
 
-export const SubMenu = ({ items }) => {
-  const [openIndexes, setOpenIndexes] = useState({});
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!event.target.closest(".MenuItem")) {
-        setOpenIndexes({});
-      }
-    };
-
-    document.addEventListener("click", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
+export const SubMenu = ({ items, closeMenu }) => {
+  const [openIndex, setOpenIndex] = useState(null);
 
   const toggleSubMenu = (index) => {
-    if (openIndexes[index]) {
-      setOpenIndexes({});
-    } else {
-      setOpenIndexes({ [index]: true });
+    setOpenIndex((currentIndex) => (currentIndex === index ? null : index));
+  };
+  const handleLinkClick = (e, hasSubItems) => {
+    if (!hasSubItems) {
+      closeMenu();
     }
   };
 
@@ -36,27 +22,21 @@ export const SubMenu = ({ items }) => {
     <WrapperSubMenu>
       {items.map((item, index) => (
         <MenuItem
-          className="MenuItem"
           key={index}
           onClick={(e) => {
+            e.stopPropagation();
             toggleSubMenu(index);
           }}
         >
           <SubMenuLink
             to={item.path || "#"}
-            onClick={
-              item.subItems && item.subItems.length > 0
-                ? (e) => {
-                    e.preventDefault();
-                  }
-                : null
-            }
+            onClick={(e) => handleLinkClick(e, !!item.subItems)}
           >
             {item.label}
           </SubMenuLink>
-          {item.subItems && openIndexes[index] && (
-            <SubMenuContainer isOpen={!!openIndexes[index]}>
-              <SubMenu items={item.subItems} />
+          {item.subItems && openIndex === index && (
+            <SubMenuContainer isOpen={true}>
+              <SubMenu items={item.subItems} closeMenu={closeMenu} />{" "}
             </SubMenuContainer>
           )}
         </MenuItem>

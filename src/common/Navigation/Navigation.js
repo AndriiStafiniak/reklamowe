@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { SubMenu } from "./subMenu/SubMenu";
 import {
   NavigationWrapper,
@@ -20,6 +20,7 @@ export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 900);
   const [openIndexes, setOpenIndexes] = useState({});
+  const navContainerRef = useRef();
 
   const toggleSubMenu = (index) => {
     setOpenIndexes((prev) => ({
@@ -38,6 +39,25 @@ export const Navigation = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [isOpen]);
+  const closeAllSubMenus = () => {
+    setOpenIndexes({});
+  };
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (
+        navContainerRef.current &&
+        !navContainerRef.current.contains(event.target)
+      ) {
+        closeAllSubMenus();
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
 
   const items = [
     {
@@ -116,7 +136,7 @@ export const Navigation = () => {
       </BurgerMenuButton>
       <NavigationWrapper>
         {(isMobile && isOpen) || !isMobile ? (
-          <NavContainer isOpen={isOpen}>
+          <NavContainer isOpen={isOpen} ref={navContainerRef}>
             <MenuLink exact to="/" onClick={closeMenu}>
               Strona główna
             </MenuLink>
@@ -135,9 +155,9 @@ export const Navigation = () => {
 
                 {openIndexes[index] && (
                   <SubMenu
+                    closeMenu={closeMenu}
                     items={item.subItems}
                     to={item.subItems.path}
-                    closeMenu={closeMenu}
                   />
                 )}
               </Column>
