@@ -30,5 +30,5 @@ export const Map = ({ placeId, lat, lng }) => {
     }
   }, [placeId, lat, lng]);
 
-  return <div ref={mapRef} style={{ height: "400px", width: "100%" }} />;
+  return <div ref={mapRef} style={{ height: "100%", width: "100%" }} />;
 };

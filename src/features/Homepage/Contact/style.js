@@ -76,3 +76,16 @@ export const Link = styled(NavLink)`
 export const ArrowRight = styled.span`
   margin-left: 10px;
 `;
+export const Title = styled.h2`
+  font-size: 33px;
+  margin: 30px;
+`;
+export const Wrapper = styled.div`
+  display: grid;
+  width: 100%;
+  padding: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+`;

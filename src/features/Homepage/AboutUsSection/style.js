@@ -36,6 +36,7 @@ export const Image = styled.img`
   width: 100%;
   height: 100%;
   border-radius: 20px;
+  max-height: 500px;
 `;
 export const Description = styled.p`
   font-size: 18px;
