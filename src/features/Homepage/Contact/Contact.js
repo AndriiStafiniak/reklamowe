@@ -14,6 +14,7 @@ import {
 } from "./style";
 import { Link } from "react-router-dom";
 import { Map } from "./Map";
+import { handleFeatureNotAvailable } from "../../../common/TileProduct/ProductCard";
 const placeId = "ChIJc5eK49TKG0cRGmBqSZwKy24";
 const lat = "-33.8688";
 const lng = "151.2195";
@@ -85,7 +86,7 @@ export const Contact = () => {
                 <Link href="/wiecej-informacji">Więcej&gt;&gt;</Link>
               </Label>
             </CheckboxGroup>
-            <SubmitButton type="submit">
+            <SubmitButton onClick={handleFeatureNotAvailable} type="submit">
               Wyślij wiadomość <ArrowRight>&rarr;</ArrowRight>
             </SubmitButton>
           </form>

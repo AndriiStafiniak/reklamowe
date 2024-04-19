@@ -8,6 +8,7 @@ import {
   Text,
 } from "./style";
 import { NewsletterForm } from "./Newsletter/Newsletter";
+import { toContact } from "../../routs";
 const imagePath = require("../../images/logo.png");
 
 export const Footer = () => {
@@ -50,7 +51,7 @@ export const Footer = () => {
             <MenuLink to="https://gadzety-reklamowe.com/site/3/aktualnosci1.html">
               Aktualności
             </MenuLink>
-            <MenuLink to="/contact">Kontakt</MenuLink>
+            <MenuLink to={toContact()}>Kontakt</MenuLink>
             <MenuLink to="https://gadzety-reklamowe.com/content/o-nas">
               O nas
             </MenuLink>
@@ -74,7 +75,11 @@ export const Footer = () => {
           </NavContainer>
           <NavContainer>
             <Text>Kontakt</Text>
-            <MenuLink isAdress={true} to="Warszawa">
+            <MenuLink
+              isAdress={true}
+              target="__blank"
+              to="https://www.google.pl/maps/place/Gad%C5%BCety+reklamowe+-+Reklamowe24/@51.8265484,19.4256893,17z/data=!3m1!4b1!4m6!3m5!1s0x471bcad4e38a9773:0x6ecb0a9c496a601a!8m2!3d51.8265451!4d19.4282642!16s%2Fg%2F1tg14h21?entry=ttu"
+            >
               <span>Reklamowe24</span> <span>ul. Zgierska 249A </span>
               <span>91-495 Łódź</span>
             </MenuLink>

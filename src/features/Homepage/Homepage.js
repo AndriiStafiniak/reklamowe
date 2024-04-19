@@ -36,7 +36,7 @@ export const Homepage = () => {
       </Section>
       <Section>
         <SectionTitle>Bestsellery</SectionTitle>
-        <Products category={bestsellerQueryString} />
+        <Products isScrollable={true} category={bestsellerQueryString} />
       </Section>
       <Blog />
       <Section>

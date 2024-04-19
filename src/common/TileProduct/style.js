@@ -32,6 +32,7 @@ export const TileWrapper = styled.div`
   padding: 1rem;
   position: relative;
   transition: 0.2s;
+  min-height: 440px;
   &:hover {
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.07);
   }

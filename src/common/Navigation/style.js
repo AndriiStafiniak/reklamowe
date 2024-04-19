@@ -38,8 +38,8 @@ export const BurgerMenuButton = styled.button`
   border: none;
   z-index: 1000;
   position: absolute;
-  right: 3%;
-  top: 5%;
+  right: 4%;
+  top: 6%;
   display: none;
   @media (max-width: 900px) {
     display: block;

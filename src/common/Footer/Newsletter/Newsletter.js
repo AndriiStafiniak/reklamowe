@@ -1,3 +1,4 @@
+import { handleFeatureNotAvailable } from "../../TileProduct/ProductCard";
 import {
   Button,
   Description,
@@ -41,7 +42,7 @@ export const NewsletterForm = () => {
           onChange={(e) => setEmail(e.target.value)}
           aria-label="Email"
         />
-        <Button>➜</Button>
+        <Button onClick={handleFeatureNotAvailable}>➜</Button>
       </Form>
     </NewsletterContainer>
   );

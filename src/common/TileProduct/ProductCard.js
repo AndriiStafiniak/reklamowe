@@ -12,6 +12,11 @@ import {
   TileWrapper,
   TitleProduct,
 } from "./style";
+export const handleFeatureNotAvailable = () => {
+  alert(
+    "Przepraszamy, ta funkcjonalność jest obecnie w trakcie opracowywania. Prosimy sprawdzić ponownie wkrótce! 😃"
+  );
+};
 
 export const ProductCard = ({ product }) => {
   const getThreeFirstWords = (text) => {
@@ -41,7 +46,7 @@ export const ProductCard = ({ product }) => {
           {!productPrice ? "" : productPrice} zł
         </Price>
       </BottomContainer>
-      <HoverButton>Zamów teraz</HoverButton>
+      <HoverButton onClick={handleFeatureNotAvailable}>Zamów teraz</HoverButton>
     </TileWrapper>
   );
 };

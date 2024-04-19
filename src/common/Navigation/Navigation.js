@@ -10,6 +10,7 @@ import {
 } from "./style";
 import { Arrow } from "./subMenu/style";
 import {
+  toContact,
   toElectronics,
   toJewelery,
   toMenClothes,
@@ -162,7 +163,7 @@ export const Navigation = () => {
                 )}
               </Column>
             ))}
-            <MenuLink to="/contact" onClick={closeMenu}>
+            <MenuLink to={toContact()} onClick={closeMenu}>
               Kontakt
             </MenuLink>
           </NavContainer>
