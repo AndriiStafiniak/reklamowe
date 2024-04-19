@@ -20,8 +20,8 @@ export const FooterContainer = styled.div`
 `;
 
 export const FooterLogo = styled.img`
-  width: 15.625rem;
-  height: 5.875rem;
+  width: 100px;
+  height: 50px;
   margin: 1.125rem 1.75rem;
 
   @media (max-width: 900px) {
@@ -29,7 +29,7 @@ export const FooterLogo = styled.img`
   }
 `;
 
-export const NavContainer = styled.nav`
+export const NavContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,12 +40,13 @@ export const NavContainer = styled.nav`
 
 export const MenuLink = styled(NavLink)`
   text-decoration: none;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 170%;
   color: inherit;
-  max-width: ${({ isAdress }) => (isAdress ? "125px" : "auto")};
+  display: ${({ isAdress }) => (isAdress ? "flex" : "auto")};
   transition: 0.2s;
+  flex-direction: column;
   &:hover {
     color: ${({ theme }) => theme.colors.cerulean};
   }
@@ -70,7 +71,7 @@ export const SubFooter = styled.footer`
 `;
 
 export const Text = styled.p`
-  font-size: 20px;
+  font-size: 16px;
   line-height: 160%;
   @media (max-width: 900px) {
     text-align: center;
@@ -79,8 +80,10 @@ export const Text = styled.p`
 
 export const FooterLinkContainer = styled.div`
   display: grid;
+  width: 100%;
+
   padding: 20px;
-  grid-template-columns: repeat(3, 300px);
+  grid-template-columns: repeat(3, 1fr);
   align-items: baseline;
   justify-items: center;
   @media (max-width: 900px) {
