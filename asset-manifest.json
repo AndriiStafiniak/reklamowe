@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/reklamowe/static/js/main.2219cc18.js",
+    "main.js": "/reklamowe/static/js/main.7560e718.js",
     "static/js/453.c59d7500.chunk.js": "/reklamowe/static/js/453.c59d7500.chunk.js",
     "static/media/men.png": "/reklamowe/static/media/men.b681c426d93bdad50a53.png",
     "static/media/women.png": "/reklamowe/static/media/women.ca318eb887fa4c3c0b16.png",
@@ -31,10 +31,10 @@
     "index.html": "/reklamowe/index.html",
     "static/media/tel.svg": "/reklamowe/static/media/tel.0f88f158838866ab20b5ef40e42b24dd.svg",
     "static/media/email.svg": "/reklamowe/static/media/email.3f39471c22f675ca496518c90ccb71cf.svg",
-    "main.2219cc18.js.map": "/reklamowe/static/js/main.2219cc18.js.map",
+    "main.7560e718.js.map": "/reklamowe/static/js/main.7560e718.js.map",
     "453.c59d7500.chunk.js.map": "/reklamowe/static/js/453.c59d7500.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.2219cc18.js"
+    "static/js/main.7560e718.js"
   ]
 }
