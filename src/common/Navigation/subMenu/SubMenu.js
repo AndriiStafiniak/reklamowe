@@ -1,37 +1,66 @@
-import { useState } from "react";
-import { Arrow, MenuItem, SubMenuContainer, SubMenuLink } from "./style";
+import { useEffect, useState } from "react";
+import {
+  Arrow,
+  MenuItem,
+  SubMenuContainer,
+  SubMenuLink,
+  WrapperSubMenu,
+} from "./style";
 
 export const SubMenu = ({ items }) => {
   const [openIndexes, setOpenIndexes] = useState({});
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest(".MenuItem")) {
+        setOpenIndexes({});
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   const toggleSubMenu = (index) => {
-    setOpenIndexes((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
+    if (openIndexes[index]) {
+      setOpenIndexes({});
+    } else {
+      setOpenIndexes({ [index]: true });
+    }
   };
 
   return (
-    <div>
-      {items &&
-        items.map((item, index) => (
-          <MenuItem
-            key={index}
-            onClick={(e) => {
-              e.stopPropagation();
-              toggleSubMenu(index);
-            }}
+    <WrapperSubMenu>
+      {items.map((item, index) => (
+        <MenuItem
+          className="MenuItem"
+          key={index}
+          onClick={(e) => {
+            toggleSubMenu(index);
+          }}
+        >
+          <SubMenuLink
+            to={item.path || "#"}
+            onClick={
+              item.subItems && item.subItems.length > 0
+                ? (e) => {
+                    e.preventDefault();
+                  }
+                : null
+            }
           >
-            <SubMenuLink to={item.path} onClick={(e) => e.preventDefault()}>
-              {item.label}
-            </SubMenuLink>
-            {item.subItems && openIndexes[index] && (
-              <SubMenuContainer isOpen={!!openIndexes[index]}>
-                <SubMenu items={item.subItems} />
-              </SubMenuContainer>
-            )}
-          </MenuItem>
-        ))}
-    </div>
+            {item.label}
+          </SubMenuLink>
+          {item.subItems && openIndexes[index] && (
+            <SubMenuContainer isOpen={!!openIndexes[index]}>
+              <SubMenu items={item.subItems} />
+            </SubMenuContainer>
+          )}
+        </MenuItem>
+      ))}
+    </WrapperSubMenu>
   );
 };

@@ -11,13 +11,12 @@ export const NavigationWrapper = styled.div`
 `;
 
 export const NavContainer = styled.nav`
-  align-items: center;
+  display: flex;
   position: relative;
   top: 0;
   left: 0;
   width: 100%;
   padding: 30px;
-  display: flex;
 
   @media (max-width: 900px) {
     position: fixed;
@@ -77,18 +76,21 @@ export const BurgerIcon = styled.div`
 `;
 
 export const MenuLink = styled(NavLink)`
+  display: flex;
   text-decoration: none;
   color: inherit;
   font-weight: 700;
   padding: 10px 20px;
   font-size: 22px;
+  transition: 0.2s;
   @media (max-width: 900px) {
     color: #fff;
   }
   &:hover {
-    background-color: #61dcdf;
+    color: teal;
   }
-  &.active {
-    background-color: #00bcd4;
-  }
+`;
+export const Column = styled.div`
+  display: flex;
+  flex-direction: column;
 `;

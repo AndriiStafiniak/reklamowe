@@ -6,8 +6,15 @@ import {
   BurgerIcon,
   NavContainer,
   MenuLink,
+  Column,
 } from "./style";
 import { Arrow } from "./subMenu/style";
+import {
+  toElectronics,
+  toJewelery,
+  toMenClothes,
+  toWomenClothes,
+} from "../../routs";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,38 +37,48 @@ export const Navigation = () => {
     const handleResize = () => setIsMobile(window.innerWidth < 900);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [isOpen]);
 
   const items = [
     {
       label: "Oferta gadżetów",
-      path: "/gadzety",
+      path: "/",
       subItems: [
         {
-          label: "Podstrona 1",
-          path: "/gadzety/podstrona-1",
+          label: "Do biura →",
+          path: "",
           subItems: [
             {
-              label: "Zagnieżdżona podstrona 1",
-              path: "/gadzety/podstrona-1/zagniezdzona1",
-            },
-            {
-              label: "Zagnieżdżona podstrona 1",
-              path: "/gadzety/podstrona-1/zagniezdzona1",
+              label: "Gadżety elektroniczne",
+              path: toElectronics(),
             },
           ],
         },
         {
-          label: "Podstrona 2",
-          path: "/gadzety/podstrona-2",
+          label: "VIP →",
+          path: "/",
           subItems: [
             {
-              label: "Zagnieżdżona podstrona 1",
-              path: "/gadzety/podstrona-1/zagniezdzona1",
+              label: "VIP ubrania męski",
+              path: toMenClothes(),
             },
             {
-              label: "Zagnieżdżona podstrona 1",
-              path: "/gadzety/podstrona-1/zagniezdzona1",
+              label: "VIP ubrania damski ",
+              path: toWomenClothes(),
+            },
+          ],
+        },
+        {
+          label: "Tekstylia i Odzież →",
+          path: "/",
+          subItems: [
+            {
+              label: "Odzież Damska",
+              path: toWomenClothes(),
+            },
+            {
+              label: "Odzież Męska",
+              path: toMenClothes(),
             },
           ],
         },
@@ -69,24 +86,25 @@ export const Navigation = () => {
     },
     {
       label: "Oferta tematyczna",
-      path: "/oferta-tematyczna",
+      path: "/",
       subItems: [
         {
-          label: "Podstrona 1",
-          path: "/gadzety/podstrona-1",
+          label: "Nasze bestsellery",
+          path: toJewelery(),
         },
-        { label: "Podstrona 2", path: "/gadzety/podstrona-2" },
+        { label: "Gadżety markowe", path: toElectronics() },
+        { label: "Nowości", path: toWomenClothes() },
       ],
     },
     {
       label: "Rabaty i promocje",
-      path: "/rabaty",
+      path: "/",
       subItems: [
         {
-          label: "Podstrona 1",
-          path: "/gadzety/podstrona-1",
+          label: "Produkty w najniższych cenach",
+          path: toMenClothes(),
         },
-        { label: "Podstrona 2", path: "/gadzety/podstrona-2" },
+        { label: "Promocja miesiąca", path: toJewelery() },
       ],
     },
   ];
@@ -103,24 +121,28 @@ export const Navigation = () => {
               Strona główna
             </MenuLink>
             {items.map((item, index) => (
-              <>
+              <Column key={index}>
                 <MenuLink
                   key={index}
-                  to={item.path}
+                  to={item.path || "#"}
                   onClick={(e) => {
-                    e.preventDefault();
                     toggleSubMenu(index);
                   }}
                 >
                   {item.label}
-                  <Arrow isOpen={isOpen} />
+                  <Arrow isOpen={openIndexes[index]} />
                 </MenuLink>
+
                 {openIndexes[index] && (
-                  <SubMenu items={item.subItems} closeMenu={closeMenu} />
+                  <SubMenu
+                    items={item.subItems}
+                    to={item.subItems.path}
+                    closeMenu={closeMenu}
+                  />
                 )}
-              </>
+              </Column>
             ))}
-            <MenuLink exact to="kontakt" onClick={closeMenu}>
+            <MenuLink to="/contact" onClick={closeMenu}>
               Kontakt
             </MenuLink>
           </NavContainer>

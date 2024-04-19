@@ -7,6 +7,10 @@ export const SubMenuLink = styled(NavLink)`
   color: black;
   text-decoration: none;
   font-size: 22px;
+  transition: 0.2s;
+  &:hover {
+    color: teal;
+  }
   @media (max-width: 900px) {
     color: 000;
     background-color: #fff;
@@ -14,32 +18,37 @@ export const SubMenuLink = styled(NavLink)`
 `;
 
 export const SubMenuContainer = styled.div`
-  display: ${(props) => (props.isOpen ? "block" : "none")};
+  display: none;
+  border-radius: 10px;
 
-  background-color: white;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   ${({ isOpen }) =>
     isOpen &&
     `
-    display: block;
+    display: flex;
   `}
 `;
 
 export const MenuItem = styled.div`
   position: relative;
-  &.active {
-    display: block;
+  width: 100%;
+  &.MenuItem {
   }
 `;
 export const Arrow = styled.span`
-  display: inline-block;
+  display: flex;
+  align-self: center;
   font-size: 14px;
   margin-left: 7px;
-  transform: ${({ isOpen }) => (isOpen ? "rotate(90deg)" : "rotate(0deg)")};
+  transform: ${({ isOpen }) => (isOpen ? "rotate(180deg)" : "rotate(0deg)")};
   transition: transform 0.2s;
 
   &:before {
     content: "▼";
   }
+`;
+export const WrapperSubMenu = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
