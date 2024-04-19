@@ -4,6 +4,7 @@ import { Header } from "./common/Header/Header";
 import { Navigation } from "./common/Navigation/Navigation";
 import { Homepage } from "./features/Homepage/Homepage";
 import {
+  toContact,
   toElectronics,
   toHomePage,
   toJewelery,
@@ -23,7 +24,7 @@ function App() {
       <Header />
       <Navigation />
       <Routes>
-        <Route path="/contact" element={<Contact />} />
+        <Route path={toContact()} element={<Contact />} />
         <Route path={toHomePage()} element={<Homepage />} />
         <Route path={toMenClothes()} element={<MenClothes />} />
         <Route path={toWomenClothes()} element={<WomenClothes />} />
