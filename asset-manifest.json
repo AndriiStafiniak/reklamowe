@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/reklamowe/static/js/main.7ca90334.js",
+    "main.js": "/reklamowe/static/js/main.5aa336d9.js",
     "static/js/453.c59d7500.chunk.js": "/reklamowe/static/js/453.c59d7500.chunk.js",
     "static/media/men.png": "/reklamowe/static/media/men.b681c426d93bdad50a53.png",
     "static/media/women.png": "/reklamowe/static/media/women.ca318eb887fa4c3c0b16.png",
@@ -11,7 +11,6 @@
     "static/media/brands-premium-banner.png": "/reklamowe/static/media/brands-premium-banner.755b7c8cda302afe12e2.png",
     "static/media/3.png": "/reklamowe/static/media/3.cb8a54fe8970c66d4394.png",
     "static/media/4.png": "/reklamowe/static/media/4.dc78bc929c2666309171.png",
-    "static/media/6.png": "/reklamowe/static/media/6.fb93fe03abc6f764e9a2.png",
     "static/media/kids.png": "/reklamowe/static/media/kids.de8bc39d5f31ca0b36b0.png",
     "static/media/prixton.jpg": "/reklamowe/static/media/prixton.ab60ab822b6b7bffc4b5.jpg",
     "static/media/5.png": "/reklamowe/static/media/5.14aff3044442d1ad1b42.png",
@@ -31,10 +30,10 @@
     "index.html": "/reklamowe/index.html",
     "static/media/tel.svg": "/reklamowe/static/media/tel.0f88f158838866ab20b5ef40e42b24dd.svg",
     "static/media/email.svg": "/reklamowe/static/media/email.3f39471c22f675ca496518c90ccb71cf.svg",
-    "main.7ca90334.js.map": "/reklamowe/static/js/main.7ca90334.js.map",
+    "main.5aa336d9.js.map": "/reklamowe/static/js/main.5aa336d9.js.map",
     "453.c59d7500.chunk.js.map": "/reklamowe/static/js/453.c59d7500.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.7ca90334.js"
+    "static/js/main.5aa336d9.js"
   ]
 }
