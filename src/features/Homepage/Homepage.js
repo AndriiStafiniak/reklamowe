@@ -12,7 +12,7 @@ import {
   Section,
   SectionTitle,
 } from "./style";
-import { ReviewsComponent } from "../../common/ReviewsComponent/ReviewsComponent";
+
 import { Blog } from "./Blog/Blog";
 import { Brands } from "./Brands/Brands";
 import { AboutUs } from "./AboutUsSection/AboutUs";
@@ -43,22 +43,12 @@ export const Homepage = () => {
         <SectionTitle>Nasze marki premium</SectionTitle>
         <Brands />
       </Section>
-      <Section>
-        <SectionTitle>Co mówią o nas klienci</SectionTitle>
-        <ReviewsComponent placeId="ChIJc5eK49TKG0cRGmBqSZwKy24" />
-      </Section>
+
       <Section>
         <SectionTitle>
           Gadżety reklamowe - Na tym znamy się najlepiej
         </SectionTitle>
-        {aboutUsData.map((data, index) => (
-          <AboutUs
-            key={index}
-            pathImage={data.image}
-            description={data.description}
-            title={data.title}
-          />
-        ))}
+        <AboutUs data={aboutUsData} />
       </Section>
     </>
   );

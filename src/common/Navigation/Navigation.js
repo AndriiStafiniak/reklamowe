@@ -16,6 +16,8 @@ import {
   toMenClothes,
   toWomenClothes,
 } from "../../routs";
+import { NavLink } from "react-router-dom";
+import { Container } from "../../components/Container/Container";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -133,41 +135,43 @@ export const Navigation = () => {
   return (
     <>
       <BurgerMenuButton onClick={() => setIsOpen(!isOpen)}>
-        <BurgerIcon isOpen={isOpen} />
+        <BurgerIcon $isOpen={isOpen} />
       </BurgerMenuButton>
       <NavigationWrapper>
-        {(isMobile && isOpen) || !isMobile ? (
-          <NavContainer isOpen={isOpen} ref={navContainerRef}>
-            <MenuLink exact to="/" onClick={closeMenu}>
-              Strona główna
-            </MenuLink>
-            {items.map((item, index) => (
-              <Column key={index}>
-                <MenuLink
-                  key={index}
-                  to={item.path || "#"}
-                  onClick={(e) => {
-                    toggleSubMenu(index);
-                  }}
-                >
-                  {item.label}
-                  <Arrow isOpen={openIndexes[index]} />
-                </MenuLink>
+        <Container>
+          {(isMobile && isOpen) || !isMobile ? (
+            <NavContainer $isOpen={isOpen} ref={navContainerRef}>
+              <MenuLink to="/" onClick={closeMenu}>
+                Strona główna
+              </MenuLink>
+              {items.map((item, index) => (
+                <Column key={index}>
+                  <MenuLink
+                    key={index}
+                    to={item.path || "#"}
+                    onClick={(e) => {
+                      toggleSubMenu(index);
+                    }}
+                  >
+                    {item.label}
+                    <Arrow isOpen={openIndexes[index]} />
+                  </MenuLink>
 
-                {openIndexes[index] && (
-                  <SubMenu
-                    closeMenu={closeMenu}
-                    items={item.subItems}
-                    to={item.subItems.path}
-                  />
-                )}
-              </Column>
-            ))}
-            <MenuLink to={toContact()} onClick={closeMenu}>
-              Kontakt
-            </MenuLink>
-          </NavContainer>
-        ) : null}
+                  {openIndexes[index] && (
+                    <SubMenu
+                      closeMenu={closeMenu}
+                      items={item.subItems}
+                      to={item.subItems.path}
+                    />
+                  )}
+                </Column>
+              ))}
+              <MenuLink to={toContact()} onClick={closeMenu}>
+                Kontakt
+              </MenuLink>
+            </NavContainer>
+          ) : null}
+        </Container>
       </NavigationWrapper>
     </>
   );

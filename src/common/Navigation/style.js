@@ -25,8 +25,8 @@ export const NavContainer = styled.nav`
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.9);
     z-index: 999;
-    transform: ${({ isOpen }) =>
-      isOpen ? "translateX(0)" : "translateX(-100%)"};
+    transform: ${({ $isOpen }) =>
+      $isOpen ? "translateX(0)" : "translateX(-100%)"};
     transition: transform 0.3s ease-in-out;
   }
 `;
@@ -66,8 +66,8 @@ export const BurgerIcon = styled.div`
   &::after {
     top: 10px;
   }
-  ${({ isOpen }) =>
-    isOpen &&
+  ${({ $isOpen }) =>
+    $isOpen &&
     `
     background-color: transparent;
     &::before { transform: rotate(45deg) translate(5px, 5px); }

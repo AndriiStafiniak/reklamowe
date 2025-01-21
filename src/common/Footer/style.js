@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 export const FooterContainer = styled.div`
-  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
   background-color: #eee;
   display: flex;

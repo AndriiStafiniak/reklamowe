@@ -2,27 +2,34 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { ReactComponent as MailIcon } from "../../images/icons/email.svg";
 import { ReactComponent as TelIcon } from "../../images/icons/tel.svg";
+
 export const StyledMailIcon = styled(MailIcon)`
   transition: 0.2s;
   &:hover {
     fill: ${({ theme }) => theme.colors.cerulean};
   }
 `;
+
 export const StyledTelIcon = styled(TelIcon)`
   transition: 0.2s;
-
   &:hover {
     fill: ${({ theme }) => theme.colors.cerulean};
   }
 `;
-export const HeaderContainer = styled.header`
+
+export const HeaderWrapper = styled.header`
+  width: 100%;
+  background-color: #fff;
+  padding: 10px 0;
+`;
+
+export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  padding: 20px;
-  background-color: ${({ theme }) => theme.colors.headerBg};
-  border-bottom: 1px solid #eee;
+  align-items: center;
+  padding: 10px 0;
 `;
+
 export const Logo = styled.img`
   width: 175px;
   height: 55px;
@@ -31,6 +38,7 @@ export const Logo = styled.img`
     height: 40px;
   }
 `;
+
 export const HeaderContactContainer = styled.div`
   display: flex;
   gap: 30px;
@@ -52,6 +60,7 @@ export const ContactContent = styled(NavLink)`
     text-decoration: underline;
   }
 `;
+
 export const LogoLink = styled(NavLink)`
   text-decoration: none;
   transition: 0.2s;
@@ -59,6 +68,7 @@ export const LogoLink = styled(NavLink)`
     opacity: 0.5;
   }
 `;
+
 export const HideContacttext = styled.span`
   @media (max-width: 900px) {
     display: none;

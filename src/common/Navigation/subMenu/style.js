@@ -52,3 +52,11 @@ export const WrapperSubMenu = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+export const SubMenuWrapper = styled.div`
+  ${({ $left }) =>
+    $left &&
+    `
+    // left styles
+  `}
+`;

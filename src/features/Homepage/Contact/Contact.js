@@ -13,7 +13,7 @@ import {
   Wrapper,
 } from "./style";
 import { Link } from "react-router-dom";
-import { Map } from "./Map";
+import Map from "../../../components/Map/Map";
 import { handleFeatureNotAvailable } from "../../../common/TileProduct/ProductCard";
 const placeId = "ChIJc5eK49TKG0cRGmBqSZwKy24";
 const lat = "-33.8688";
@@ -91,7 +91,7 @@ export const Contact = () => {
             </SubmitButton>
           </form>
         </FormWrapper>
-        <Map placeId={placeId} lat={lat} lng={lng} />
+        <Map />
       </Wrapper>
     </>
   );
